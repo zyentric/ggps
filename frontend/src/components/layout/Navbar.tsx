@@ -18,80 +18,120 @@ export const Navbar: React.FC = () => {
   const theme = useTheme();
   const colorMode = useColorMode();
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} style={styles.drawerContainer}>
-      <Box style={styles.drawerHeader}>
-        <GraduationCap size={24} style={styles.iconPrimary} />
-        <Typography variant="h6" style={styles.drawerTitle}>
-          GGPS
-        </Typography>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', width: 260 }}>
+      <Box sx={{ py: 2, px: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, borderBottom: '1px solid rgba(0,0,0,0.12)' }}>
+        <GraduationCap size={24} color="#1a237e" />
+        <Typography variant="h6" sx={{ fontWeight: 800, color: '#1a237e' }}>GGPS</Typography>
       </Box>
       <List>
         {navItems.map((item) => (
           <ListItem key={item.path} disablePadding>
-            <ListItemButton component={Link} to={item.path} selected={location.pathname === item.path}>
-              <ListItemText primary={item.label} style={styles.textCenter} />
+            <ListItemButton
+              component={Link}
+              to={item.path}
+              selected={location.pathname === item.path}
+              sx={{ justifyContent: 'center' }}
+            >
+              <ListItemText
+                primary={item.label}
+                slotProps={{ primary: { sx: { fontWeight: location.pathname === item.path ? 700 : 400 } } }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem disablePadding sx={{ px: 2, pt: 2 }}>
+          <Button
+            variant="contained"
+            color="secondary"
+            component={Link}
+            to="/admissions"
+            fullWidth
+            sx={{ borderRadius: '24px' }}
+          >
+            Apply Now
+          </Button>
+        </ListItem>
       </List>
     </Box>
   );
 
   return (
     <>
-      <AppBar position="sticky" color="default" elevation={1} style={styles.appBar}>
+      <AppBar
+        position="sticky"
+        color="default"
+        elevation={1}
+        sx={{ backgroundColor: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)' }}
+      >
         <Container maxWidth="lg">
-          <Toolbar disableGutters style={styles.toolbar}>
+          <Toolbar disableGutters sx={{ justifyContent: 'space-between', py: 0.5 }}>
             {/* Logo */}
-            <Box component={Link} to="/" style={styles.logoContainer}>
-              <GraduationCap size={32} style={styles.iconPrimary} />
-              <Typography variant="h6" noWrap style={styles.logoText}>
-                {siteConfig.shortName}
-              </Typography>
+            <Box component={Link} to="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit', gap: 1 }}>
+              <GraduationCap size={32} color="#1a237e" />
+              <Box>
+                <Typography variant="h6" noWrap sx={{ fontWeight: 800, letterSpacing: '.05rem', color: '#1a237e', lineHeight: 1.1 }}>
+                  {siteConfig.shortName}
+                </Typography>
+                <Typography variant="caption" sx={{ color: '#475569', display: { xs: 'none', sm: 'block' } }}>
+                  Shakteshgarh, Mirzapur
+                </Typography>
+              </Box>
             </Box>
 
             {/* Desktop Navigation */}
-            <Box style={styles.desktopNav}>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
               {navItems.map((item) => (
                 <Button
                   key={item.path}
                   component={Link}
                   to={item.path}
-                  style={{
-                    ...styles.navButton,
+                  sx={{
+                    textTransform: 'none',
+                    fontSize: '0.95rem',
                     color: location.pathname === item.path ? '#1a237e' : 'inherit',
-                    fontWeight: location.pathname === item.path ? 'bold' : 'normal',
+                    fontWeight: location.pathname === item.path ? 700 : 400,
+                    position: 'relative',
+                    '&::after': location.pathname === item.path ? {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: 4,
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: '60%',
+                      height: 2,
+                      backgroundColor: '#1a237e',
+                      borderRadius: 1,
+                    } : {},
                   }}
                 >
                   {item.label}
                 </Button>
               ))}
-              
-              <IconButton style={styles.themeToggleBtn} onClick={colorMode.toggleColorMode} color="inherit">
+
+              <IconButton onClick={colorMode.toggleColorMode} color="inherit" sx={{ ml: 1 }}>
                 {theme.palette.mode === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               </IconButton>
-              
-              <Button variant="contained" color="secondary" component={Link} to="/admissions" style={styles.applyBtn}>
+
+              <Button
+                variant="contained"
+                color="secondary"
+                component={Link}
+                to="/admissions"
+                sx={{ ml: 1, borderRadius: '24px', px: 2.5, fontWeight: 700, textTransform: 'none' }}
+              >
                 Apply Now
               </Button>
             </Box>
 
             {/* Mobile Navigation Toggle */}
-            <Box style={styles.mobileNavToggle}>
-              <IconButton onClick={colorMode.toggleColorMode} color="inherit" style={styles.mobileThemeBtn}>
+            <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
+              <IconButton onClick={colorMode.toggleColorMode} color="inherit">
                 {theme.palette.mode === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               </IconButton>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-              >
+              <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerToggle}>
                 <MenuIcon />
               </IconButton>
             </Box>
@@ -102,89 +142,14 @@ export const Navbar: React.FC = () => {
       {/* Mobile Drawer */}
       <Drawer
         variant="temporary"
+        anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
-        }}
-        slotProps={{
-          paper: {
-            style: styles.drawerPaper
-          }
-        }}
+        ModalProps={{ keepMounted: true }}
+        slotProps={{ paper: { sx: { width: 260 } } }}
       >
         {drawer}
       </Drawer>
     </>
   );
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  appBar: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    backdropFilter: 'blur(8px)',
-  },
-  toolbar: {
-    justifyContent: 'space-between',
-  },
-  logoContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    textDecoration: 'none',
-    color: 'inherit',
-    gap: '8px',
-  },
-  iconPrimary: {
-    color: '#1a237e',
-  },
-  logoText: {
-    fontWeight: 800,
-    letterSpacing: '.1rem',
-    color: '#1a237e',
-  },
-  desktopNav: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '16px',
-  },
-  navButton: {
-    textTransform: 'none',
-    fontSize: '1rem',
-  },
-  themeToggleBtn: {
-    marginLeft: '8px',
-  },
-  applyBtn: {
-    marginLeft: '16px',
-    borderRadius: '24px',
-    padding: '6px 20px',
-  },
-  mobileNavToggle: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  mobileThemeBtn: {
-    marginRight: '8px',
-  },
-  drawerContainer: {
-    textAlign: 'center',
-  },
-  drawerHeader: {
-    padding: '16px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-  },
-  drawerTitle: {
-    fontWeight: 'bold',
-    color: '#1a237e',
-  },
-  textCenter: {
-    textAlign: 'center',
-  },
-  drawerPaper: {
-    width: '250px',
-  }
 };
