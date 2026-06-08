@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Container, Typography, Tabs, Tab, Card, CardContent, useTheme } from '@mui/material';
+import { Box, Container, Typography, Tabs, Tab, Card, CardContent } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const academicStages = [
@@ -78,7 +78,7 @@ function CustomTabPanel(props: TabPanelProps) {
 export const Academics: React.FC = () => {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 

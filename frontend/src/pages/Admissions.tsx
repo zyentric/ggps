@@ -35,7 +35,7 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>;
 
 export const Admissions: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep] = useState(0);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const { control, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormData>({
@@ -76,7 +76,7 @@ export const Admissions: React.FC = () => {
                 Admission Workflow
               </Typography>
               <Stepper activeStep={activeStep} orientation="vertical" style={styles.stepper}>
-                {steps.map((step, index) => (
+                {steps.map((step) => (
                   <Step key={step.label} active={true}>
                     <StepLabel>
                       <Typography variant="h6">{step.label}</Typography>
