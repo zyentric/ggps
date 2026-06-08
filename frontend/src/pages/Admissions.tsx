@@ -39,7 +39,7 @@ export const Admissions: React.FC = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const { control, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema) as any,
     defaultValues: {
       parentName: '',
       studentName: '',
