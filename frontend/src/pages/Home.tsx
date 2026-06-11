@@ -134,7 +134,7 @@ export const Home: React.FC = () => {
                 About Our School
               </Typography>
               <Typography variant="body1" sx={{ color: '#475569', fontSize: '1.05rem', lineHeight: 1.85, mb: 3 }}>
-                Gyan Ganga Public School is dedicated to nurturing young minds with a blend of traditional values and modern pedagogy.
+                Apna College is dedicated to nurturing young minds with a blend of traditional values and modern pedagogy.
                 We provide a safe, engaging, and dynamic learning environment where every student is encouraged to reach their full potential.
               </Typography>
               <Button

@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
               <GraduationCap size={32} color="#ffb300" />
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, lineHeight: 1.2 }}>{siteConfig.shortName}</Typography>
-                <Typography variant="caption" sx={{ opacity: 0.7 }}>Shakteshgarh, Mirzapur</Typography>
+                <Typography variant="caption" sx={{ opacity: 0.7 }}>Demo City, Demo State</Typography>
               </Box>
             </Box>
             <Typography variant="body2" sx={{ opacity: 0.8, mb: 2.5, lineHeight: 1.8, maxWidth: 320 }}>
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </Typography>
           <Typography variant="body2" sx={{ opacity: 0.5, fontSize: '0.75rem' }}>
-            Shakteshgarh, Mirzapur, Uttar Pradesh
+            123 Education Lane, Demo City, Demo State
           </Typography>
         </Box>
       </Container>

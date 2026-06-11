@@ -76,7 +76,7 @@ export const Navbar: React.FC = () => {
                   {siteConfig.shortName}
                 </Typography>
                 <Typography variant="caption" sx={{ color: '#475569', display: { xs: 'none', sm: 'block' } }}>
-                  Shakteshgarh, Mirzapur
+                  Demo City, Demo State
                 </Typography>
               </Box>
             </Box>

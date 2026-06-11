@@ -25,7 +25,7 @@ export const About: React.FC = () => {
               About Us
             </Typography>
             <Typography variant="h6" sx={{ color: '#475569', maxWidth: '700px', mx: 'auto', lineHeight: 1.8, fontWeight: 400, fontSize: { xs: '1rem', md: '1.1rem' } }}>
-              Discover the mission, vision, and the driving force behind Gyan Ganga Public School.
+              Discover the mission, vision, and the driving force behind Apna College.
             </Typography>
           </motion.div>
         </Box>
@@ -39,7 +39,7 @@ export const About: React.FC = () => {
                 Overview & Mission
               </Typography>
               <Typography variant="body1" sx={{ lineHeight: 1.85, mb: 3, color: '#1e293b', fontSize: { xs: '0.95rem', md: '1rem' } }}>
-                Founded in 2015, Gyan Ganga Public School has been a beacon of knowledge in Shakteshgarh, Mirzapur.
+                Founded in 2015, Apna College has been a beacon of knowledge in Demo City, Demo State.
                 We provide a comprehensive educational experience from LKG to Class 12, aligned with the National Education Policy (NEP) 2020.
               </Typography>
               <Typography variant="body1" sx={{ lineHeight: 1.85, mb: 3, color: '#1e293b', fontSize: { xs: '0.95rem', md: '1rem' } }}>
@@ -53,7 +53,7 @@ export const About: React.FC = () => {
                   { label: 'Established', value: '2015' },
                   { label: 'Classes', value: 'LKG – XII' },
                   { label: 'Medium', value: 'Hindi & English' },
-                  { label: 'Location', value: 'Mirzapur, U.P.' },
+                  { label: 'Location', value: 'Demo City, Demo State' },
                 ].map((f) => (
                   <Box key={f.label} sx={{ p: 2, backgroundColor: '#f0f3ff', borderRadius: '12px', borderLeft: '3px solid #1a237e' }}>
                     <Typography variant="caption" sx={{ color: '#475569', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
@@ -79,7 +79,7 @@ export const About: React.FC = () => {
                   </Typography>
                   <Box sx={{ textAlign: 'right' }}>
                     <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>— Mr. Rishikesh Singh</Typography>
-                    <Typography variant="caption" sx={{ opacity: 0.75 }}>Principal, Gyan Ganga Public School</Typography>
+                    <Typography variant="caption" sx={{ opacity: 0.75 }}>Principal, Apna College</Typography>
                   </Box>
                 </CardContent>
               </Card>

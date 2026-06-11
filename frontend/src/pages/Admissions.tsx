@@ -61,7 +61,7 @@ export const Admissions: React.FC = () => {
           Admissions 2026–27
         </Typography>
         <Typography variant="h6" sx={{ textAlign: 'center', mb: { xs: 4, md: 7 }, color: '#475569', fontWeight: 400, lineHeight: 1.8, fontSize: { xs: '0.95rem', md: '1.05rem' } }}>
-          Join the Gyan Ganga Public School family. Follow the guidelines below or drop us an inquiry.
+          Join the Apna College family. Follow the guidelines below or drop us an inquiry.
         </Typography>
 
         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 4, md: 6 }, alignItems: 'flex-start' }}>

@@ -1,16 +1,16 @@
 export const siteConfig = {
-  name: "Gyan Ganga Public School",
-  shortName: "GGPS",
-  tagline: "Excellence in Education Since 2015",
+  name: "Apna College",
+  shortName: "Apna College",
+  tagline: "Excellence in Education",
   description: "A premier co-educational institution aligned with NEP 2020, offering classes from LKG to Class 12.",
-  established: 2015,
+  established: 2000,
   contact: {
-    phone: "+91 800 443 7966",
-    email: "gyanganga@gmail.com",
-    address: "Kothilwa Road, Lalpur Shakteshgarh, Chunar, Mirzapur, Uttar Pradesh - 231404"
+    phone: "+91 98765 43210",
+    email: "info@apnacollege.demo",
+    address: "123 Education Lane, Demo City, Demo State"
   },
   leadership: {
-    principal: "Mr. Rishikesh Singh"
+    principal: "Mr. Demo Principal"
   },
   stats: {
     students: 250,
